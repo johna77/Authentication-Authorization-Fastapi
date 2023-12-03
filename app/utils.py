@@ -1,7 +1,7 @@
 # Hash and Verify the password and Calculator Program
 from passlib.context import CryptContext
 import requests
-api_key = "31a906747ad62bbcdbffd44dbf6ed87b"
+api_key = 
 
 pwd_context = CryptContext(schemes=['bcrypt'], deprecated="auto")
 
