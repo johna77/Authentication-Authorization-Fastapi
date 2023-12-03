@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Registartion-Page</title>
+    <!-- Link to your styles.css file -->
+    <link rel="stylesheet" href="{{ url_for('static', path='css/style.css') }}">
+</head>
+<body  class="registration-body">
+    <nav>
+        <a href="/" class="home-link">Home</a>
+    </nav>
+    <div class="container">
+        <img src="{{ url_for('static', path='css/images/user4.png') }}" alt="User Logo">
+        <form method="post" action="/registration/" enctype="application/x-www-form-urlencoded" onsubmit="handleRegistration(event)">
+            <input type="text" id="username" name="username" placeholder="username" required>
+            <input type="password" id="password" name="password" placeholder="password" required>
+            <button type="submit">Submit</button>
+        </form>
+        <div id="registration-message"></div>
+    </div>
+    <script>
+        function handleRegistration(event) {
+            event.preventDefault(); // Prevents the form from actually submitting
+    
+            var usernameInput = document.getElementById('username');
+            var passwordInput = document.getElementById('password');
+            var messageDiv = document.getElementById('registration-message');
+    
+            var username = usernameInput.value;
+            var password = passwordInput.value;
+    
+            // Make a POST request to the FastAPI endpoint
+            fetch('/registration/', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                body: new URLSearchParams({
+                    'username': username,
+                    'password': password,
+                }),
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Registration failed');
+                }
+                return response.text(); // assuming the server responds with the username
+            })
+            .then(username => {
+                // Handle successful registration
+                messageDiv.innerHTML = 'User registration completed! Click <a href="/">here</a> to go to the homepage.';
+    
+                // Reset form fields
+                usernameInput.value = '';
+                passwordInput.value = '';
+            })
+            .catch(error => {
+                // Handle registration failure
+                console.error('Registration error:', error);
+            });
+        }
+    </script>
+</body>
+</html>
+</body>
+</html>

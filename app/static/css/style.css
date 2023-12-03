@@ -1,0 +1,65 @@
+body {     
+    background: url("images/backg1.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+}
+.registration-body {     
+    background: url("images/regisportal.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+}
+.container {
+    text-align: center;
+}
+input {
+    border-radius: 10px;
+    border: none;
+    padding: 10px;
+    margin: 5px;
+    width: 102%;
+    display: block;
+}
+button {
+    padding: 10px;
+    background-color: rgba(226, 119, 12, 0.549);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    width: 117%;
+    display: block;
+    margin-top: 5px;
+}
+img {
+    width: 40px;
+    height: 40px;
+    margin-bottom: 10px; /* Adjust the margin as needed */
+}
+a {
+    color: white;
+    text-decoration: underline;
+    cursor: pointer;
+    margin-left: 10%;
+}
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+.home-link {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 20px;
+    margin-left: 15%; /* Adjust the margin-left value as needed */
+}
