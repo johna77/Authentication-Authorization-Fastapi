@@ -28,4 +28,3 @@ def root(user: schemas.Userlogin = Depends(schemas.Userlogin.as_form), db: Sessi
     access_token = oauth2.create_access_token(data={"user_id": user_enter.id})
     print(access_token)
     return {"access_token": access_token, "token_type": "bearer"}
-    

@@ -49,11 +49,9 @@
             })
             .then(data => {
                 console.log('Received data:', data);
-                window.location.href = data.redirect_url;
             })
             .catch(error => {
                 // Handle login failure
-                window.location.replace(data.redirect_url);
                 
                 // Display an error message to the user
                 var errorMessage = document.getElementById('error-message');
